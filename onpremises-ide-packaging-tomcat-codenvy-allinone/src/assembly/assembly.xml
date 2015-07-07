@@ -38,7 +38,7 @@
             <outputDirectory>webapps</outputDirectory>
             <outputFileNameMapping>datasource.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-datasource-plugin</include>
+                <include>com.codenvy.cloud-ide:cloud-ide-packaging-war-datasource-plugin</include>
             </includes>
         </dependencySet>
         <dependencySet>
@@ -47,7 +47,7 @@
             <outputDirectory>webapps</outputDirectory>
             <outputFileNameMapping>factory.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-factory</include>
+                <include>com.codenvy.cloud-ide:cloud-ide-packaging-war-factory</include>
             </includes>
         </dependencySet>
         <dependencySet>
@@ -56,7 +56,7 @@
             <outputDirectory>webapps</outputDirectory>
             <outputFileNameMapping>builder3.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-next-builder</include>
+                <include>com.codenvy.cloud-ide:cloud-ide-packaging-war-next-builder</include>
             </includes>
         </dependencySet>
         <dependencySet>
@@ -65,7 +65,7 @@
             <outputDirectory>webapps</outputDirectory>
             <outputFileNameMapping>java-ca.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-next-codeassistant</include>
+                <include>com.codenvy.cloud-ide:cloud-ide-packaging-war-next-codeassistant</include>
             </includes>
         </dependencySet>
         <dependencySet>
@@ -74,7 +74,7 @@
             <outputDirectory>webapps</outputDirectory>
             <outputFileNameMapping>runner3.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-next-runner</include>
+                <include>com.codenvy.cloud-ide:cloud-ide-packaging-war-next-runner</include>
             </includes>
         </dependencySet>
         <dependencySet>

@@ -36,54 +36,44 @@
             <useProjectArtifact>false</useProjectArtifact>
             <unpack>false</unpack>
             <outputDirectory>webapps</outputDirectory>
-            <outputFileNameMapping>site.war</outputFileNameMapping>
+            <outputFileNameMapping>api.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-website-codenvy</include>
+                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-platform-api</include>
             </includes>
         </dependencySet>
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <unpack>false</unpack>
             <outputDirectory>webapps</outputDirectory>
-            <outputFileNameMapping>ROOT.war</outputFileNameMapping>
+            <outputFileNameMapping>mail.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-webroot-codenvy</include>
+                <include>com.codenvy.hosted-infrastructure:codenvy-hosted-mail-server</include>
             </includes>
         </dependencySet>
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <unpack>false</unpack>
             <outputDirectory>webapps</outputDirectory>
-            <outputFileNameMapping>ide-resources.war</outputFileNameMapping>
+            <outputFileNameMapping>factory.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-ide-resources-codenvy</include>
+                <include>com.codenvy.cloud-ide:cloud-ide-packaging-war-factory</include>
             </includes>
         </dependencySet>
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <unpack>false</unpack>
             <outputDirectory>webapps</outputDirectory>
-            <outputFileNameMapping>ws.war</outputFileNameMapping>
+            <outputFileNameMapping>git.war</outputFileNameMapping>
             <includes>
-                <include>com.codenvy.cloud-ide:cloud-ide-packaging-war-next-ide-codenvy</include>
+                <include>org.eclipse.che.plugin:che-plugin-git-server</include>
             </includes>
         </dependencySet>
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <unpack>false</unpack>
-            <outputDirectory>webapps</outputDirectory>
-            <outputFileNameMapping>dashboard.war</outputFileNameMapping>
+            <outputDirectory>lib</outputDirectory>
             <includes>
-                <include>com.codenvy.onpremises:onpremises-ide-packaging-war-user-dashboard</include>
-            </includes>
-        </dependencySet>
-        <dependencySet>
-            <useProjectArtifact>false</useProjectArtifact>
-            <unpack>false</unpack>
-            <outputDirectory>webapps</outputDirectory>
-            <outputFileNameMapping>api-docs-ui.war</outputFileNameMapping>
-            <includes>
-                <include>com.codenvy.platform-api:codenvy-api-docs-ui</include>
+                <include>org.postgresql:postgresql</include>
             </includes>
         </dependencySet>
     </dependencySets>

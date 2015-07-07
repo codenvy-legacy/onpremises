@@ -79,10 +79,9 @@
             <type>war</type>
         </dependency>
         <dependency>
-            <groupId>com.codenvy.platform-api</groupId>
-            <artifactId>codenvy-api-docs-ui</artifactId>
-            <version>${codenvy.api-docs-ui.version}</version>
-            <type>war</type>
+            <groupId>org.eclipse.che.plugin</groupId>
+            <artifactId>che-plugin-datasource-ssl-socket-factory</artifactId>
+            <version>${che.plugins.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.che.plugin</groupId>
