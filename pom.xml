@@ -31,6 +31,7 @@
     <packaging>pom</packaging>
     <name>Onpremises IDE :: Parent</name>
     <modules>
+        <module>onpremises-ide-plugin-onpremises</module>
         <!--module>onpremises-ide-filters</module>
         <module>onpremises-ide-listeners</module-->
         <module>onpremises-ide-packaging-war-website-codenvy</module>
@@ -39,7 +40,6 @@
         <module>onpremises-ide-packaging-war-platform-api</module>
         <module>onpremises-ide-packaging-war-user-dashboard</module>
         <module>onpremises-ide-packaging-war-admin-dashboard</module>
-        <module>onpremises-ide-plugin-onpremises</module>
         <module>onpremises-ide-compiling-war-ide-codenvy</module>
         <!--module>onpremises-ide-packaging-war-next-ide-codenvy</module-->
         <module>onpremises-ide-packaging-war-ide-resources-codenvy</module>
