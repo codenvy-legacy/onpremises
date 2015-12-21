@@ -30,13 +30,13 @@
     <name>Onpremises IDE :: Tomcat :: IDE :: API</name>
     <dependencies>
         <dependency>
-            <groupId>com.codenvy.cloud-ide</groupId>
-            <artifactId>cloud-ide-packaging-war-factory</artifactId>
+            <groupId>com.codenvy.hosted-infrastructure</groupId>
+            <artifactId>codenvy-hosted-mail-server</artifactId>
             <type>war</type>
         </dependency>
         <dependency>
-            <groupId>com.codenvy.hosted-infrastructure</groupId>
-            <artifactId>codenvy-hosted-mail-server</artifactId>
+            <groupId>com.codenvy.onpremises</groupId>
+            <artifactId>onpremises-ide-packaging-war-factory</artifactId>
             <type>war</type>
         </dependency>
         <dependency>
