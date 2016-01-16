@@ -96,9 +96,7 @@ import org.eclipse.che.security.oauth.OAuthAuthenticatorProviderImpl;
 import org.eclipse.che.security.oauth.OAuthAuthenticatorTokenProvider;
 import org.eclipse.che.security.oauth1.OAuthAuthenticatorAuthorizationHeaderProvider;
 import org.eclipse.che.vfs.impl.fs.CleanableSearcherProvider;
-import org.eclipse.che.vfs.impl.fs.LocalFSMountStrategy;
 import org.eclipse.che.vfs.impl.fs.MountPointCacheCleaner;
-import org.eclipse.che.vfs.impl.fs.WorkspaceHashLocalFSMountStrategy;
 import org.everrest.core.impl.async.AsynchronousJobPool;
 import org.everrest.core.impl.async.AsynchronousJobService;
 import org.everrest.guice.ServiceBindingHelper;
@@ -160,8 +158,6 @@ public class OnPremisesIdeApiModule extends AbstractModule {
         multibinder.addBinding().toInstance(virtualFile -> !virtualFile.getPath().endsWith("/.codenvy/misc.xml"));
         bind(SearcherProvider.class).to(CleanableSearcherProvider.class);
         bind(MountPointCacheCleaner.Finalizer.class).asEagerSingleton();
-
-        bind(LocalFSMountStrategy.class).to(WorkspaceHashLocalFSMountStrategy.class); // (RemoteDockerNode class want it)
 
         //oauth 1
         bind(org.eclipse.che.security.oauth1.OAuthAuthenticatorProvider.class);
@@ -368,7 +364,7 @@ public class OnPremisesIdeApiModule extends AbstractModule {
                         .implement(org.eclipse.che.plugin.docker.machine.node.DockerNode.class,
                                    com.codenvy.machine.RemoteDockerNode.class)
                         .implement(org.eclipse.che.plugin.docker.machine.DockerInstanceMetadata.class,
-                                   com.codenvy.swarm.machine.SwarmInstanceMetadata.class)
+                                   com.codenvy.machine.HttpsSupportInstanceMetadata.class)
                         .build(org.eclipse.che.plugin.docker.machine.DockerMachineFactory.class));
 
         bind(org.eclipse.che.plugin.docker.machine.node.WorkspaceFolderPathProvider.class)

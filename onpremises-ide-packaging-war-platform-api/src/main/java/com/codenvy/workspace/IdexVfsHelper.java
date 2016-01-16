@@ -44,7 +44,8 @@ public class IdexVfsHelper implements VfsCleanupPerformer {
     private       File persistentVfsRootDir;
 
     @Inject
-    public IdexVfsHelper(VirtualFileSystemRegistry vfsRegistry, @Named("vfs.local.tmp_workspace_fs_root_dir") File tempFs,
+    public IdexVfsHelper(VirtualFileSystemRegistry vfsRegistry,
+                         @Named("vfs.local.tmp_workspace_fs_root_dir") File tempFs,
                          @Named("che.user.workspaces.storage") File persistentFs) {
         this.vfsRegistry = vfsRegistry;
         this.tempVfsRootDir = tempFs;
