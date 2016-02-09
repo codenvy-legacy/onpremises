@@ -25,6 +25,7 @@ import com.google.inject.name.Names;
 
 import org.eclipse.che.api.auth.oauth.OAuthTokenProvider;
 import org.eclipse.che.api.core.notification.WSocketEventBusClient;
+import org.eclipse.che.api.core.rest.ApiExceptionMapper;
 import org.eclipse.che.api.core.rest.ApiInfoService;
 import org.eclipse.che.api.core.rest.CoreRestModule;
 import org.eclipse.che.api.git.GitConnectionFactory;
@@ -91,6 +92,7 @@ public class MachineModule extends AbstractModule {
 
         bind(ArchetypeGenerator.class);
         bind(DebuggerService.class);
+        bind(ApiExceptionMapper.class);
 
         bind(GitUserResolver.class).to(LocalGitUserResolver.class);
         bind(GitConnectionFactory.class).to(NativeGitConnectionFactory.class);
@@ -131,3 +133,4 @@ public class MachineModule extends AbstractModule {
         return new Pair[] {Pair.of(eventBusURL, "")};
     }
 }
+
