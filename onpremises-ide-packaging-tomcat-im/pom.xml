@@ -67,7 +67,7 @@
                                     <outputDirectory>${project.build.directory}/packager-conf/war/im-api-docs-ui</outputDirectory>
                                     <artifactItems>
                                         <artifactItem>
-                                            <groupId>org.eclipse.che.swagger</groupId>
+                                            <groupId>org.eclipse.che.lib</groupId>
                                             <artifactId>che-swagger-war</artifactId>
                                             <type>war</type>
                                         </artifactItem>
