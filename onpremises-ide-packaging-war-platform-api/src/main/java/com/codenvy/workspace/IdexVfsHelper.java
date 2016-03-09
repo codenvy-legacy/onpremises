@@ -14,9 +14,6 @@
  */
 package com.codenvy.workspace;
 
-import org.eclipse.che.api.core.ServerException;
-import org.eclipse.che.api.vfs.server.VirtualFileSystemRegistry;
-import org.eclipse.che.vfs.impl.fs.WorkspaceHashLocalFSMountStrategy;
 import com.codenvy.workspace.listener.VfsCleanupPerformer;
 
 import org.slf4j.Logger;
@@ -35,35 +32,23 @@ import static org.eclipse.che.commons.lang.IoUtil.removeDirectory;
 public class IdexVfsHelper implements VfsCleanupPerformer {
     private static final Logger LOG = LoggerFactory.getLogger(IdexVfsHelper.class);
 
-    private final VirtualFileSystemRegistry vfsRegistry;
-
     private final File tempVfsRootDir;
     private       File persistentVfsRootDir;
 
     @Inject
-    public IdexVfsHelper(VirtualFileSystemRegistry vfsRegistry, @Named("vfs.local.tmp_workspace_fs_root_dir") File tempFs,
+    public IdexVfsHelper(@Named("vfs.local.tmp_workspace_fs_root_dir") File tempFs,
                          @Named("che.user.workspaces.storage") File persistentFs) {
-        this.vfsRegistry = vfsRegistry;
         this.tempVfsRootDir = tempFs;
         this.persistentVfsRootDir = persistentFs;
-    }
-
-    @Override
-    public void unregisterProvider(String wsId) throws IOException {
-        try {
-            vfsRegistry.unregisterProvider(wsId);
-        } catch (ServerException e) {
-            throw new IOException(e.getLocalizedMessage(), e);
-        }
     }
 
     @Override
     public void removeFS(String wsId, boolean isTemporary) throws IOException {
         File fsFolder;
         if (isTemporary) {
-            fsFolder = WorkspaceHashLocalFSMountStrategy.calculateDirPath(tempVfsRootDir, wsId);
+            fsFolder = new File(tempVfsRootDir, wsId);
         } else {
-            fsFolder = WorkspaceHashLocalFSMountStrategy.calculateDirPath(persistentVfsRootDir, wsId);
+            fsFolder = new File(persistentVfsRootDir, wsId);
         }
         if (!removeDirectory(fsFolder.getAbsolutePath())) {
             LOG.warn("Can't remove virtual filesystem with path {}", fsFolder.getAbsolutePath());
