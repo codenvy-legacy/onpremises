@@ -14,7 +14,7 @@
  */
 package com.codenvy.ext.java.server;
 
-import com.codenvy.api.AuthHttpJsonRequestFactory;
+import com.codenvy.api.AuthAwareHttpJsonRequestFactory;
 import com.codenvy.auth.sso.client.SSOContextResolver;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
@@ -102,7 +102,7 @@ public class MachineModule extends AbstractModule {
 
         bind(String.class).annotatedWith(Names.named("event.bus.url")).toProvider(EventBusURLProvider.class);
 
-        bind(HttpJsonRequestFactory.class).to(AuthHttpJsonRequestFactory.class);
+        bind(HttpJsonRequestFactory.class).to(AuthAwareHttpJsonRequestFactory.class);
     }
 
     //it's need for WSocketEventBusClient and in the future will be replaced with the property
