@@ -20,11 +20,11 @@
     <parent>
         <artifactId>onpremises-ide-parent</artifactId>
         <groupId>com.codenvy.onpremises</groupId>
-        <version>4.0.0-RC13-SNAPSHOT</version>
+        <version>4.0.0-RC14-SNAPSHOT</version>
     </parent>
     <artifactId>onpremises-ide-packaging-war-webroot-codenvy</artifactId>
     <packaging>war</packaging>
-    <name>OnPremises IDE :: WAR    :: IDE     :: Root</name>
+    <name>Onpremises IDE :: WAR    :: Root</name>
     <build>
         <plugins>
             <plugin>
