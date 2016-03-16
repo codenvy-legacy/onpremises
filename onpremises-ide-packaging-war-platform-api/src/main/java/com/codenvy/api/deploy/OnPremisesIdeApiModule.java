@@ -109,9 +109,6 @@ public class OnPremisesIdeApiModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(ApiInfoService.class);
-//        bind(GitConnectionFactory.class).to(NativeGitConnectionFactory.class);
-//        Multibinder.newSetBinder(binder(), SshKeyUploader.class).addBinding().to(GitHubKeyUploader.class);
-//        bind(SshKeyProvider.class).to(SshKeyProviderImpl.class);
         bind(ProjectTemplateRegistry.class);
         bind(ProjectTemplateDescriptionLoader.class).asEagerSingleton();
         bind(ProjectTemplateService.class);
@@ -164,7 +161,6 @@ public class OnPremisesIdeApiModule extends AbstractModule {
         bind(FactoryCreateValidator.class).to(org.eclipse.che.api.factory.server.impl.FactoryCreateValidatorImpl.class);
         bind(FactoryEditValidator.class).to(org.eclipse.che.api.factory.server.impl.FactoryEditValidatorImpl.class);
         bind(FactoryService.class);
-        //bind(com.codenvy.ide.factory.server.MessageService.class);
 
         Multibinder<ProjectHandler> projectHandlerMultibinder =
                 Multibinder.newSetBinder(binder(), org.eclipse.che.api.project.server.handlers.ProjectHandler.class);
@@ -172,9 +168,6 @@ public class OnPremisesIdeApiModule extends AbstractModule {
 
         //user-workspace-account
         bind(PasswordEncryptor.class).toInstance(new SSHAPasswordEncryptor());
-        /*
-        bind(DB.class).toProvider(com.codenvy.api.dao.mongo.MongoDatabaseProvider.class);
-        */
 
         bind(WorkspaceDao.class).to(WorkspaceDaoImpl.class);
         bind(UserDao.class).to(UserDaoImpl.class);
@@ -182,10 +175,8 @@ public class OnPremisesIdeApiModule extends AbstractModule {
         bind(UserProfileDao.class).to(com.codenvy.api.dao.ldap.UserProfileDaoImpl.class);
         bind(PreferenceDao.class).to(com.codenvy.api.dao.mongo.PreferenceDaoImpl.class);
         bind(SshDao.class).to(com.codenvy.api.dao.mongo.ssh.SshDaoImpl.class);
-        //bind(MemberDao.class).to(LocalMemberDaoImpl.class);
         bind(AccountDao.class).to(AccountDaoImpl.class);
         bind(org.eclipse.che.api.auth.AuthenticationDao.class).to(com.codenvy.api.dao.authentication.AuthenticationDaoImpl.class);
-//        bind(FactoryStore.class).to(InMemoryFactoryStore.class);
         bind(RecipeDao.class).to(RecipeDaoImpl.class);
         bind(RecipeLoader.class);
         Multibinder<String> recipeBinder = Multibinder.newSetBinder(binder(), String.class, Names.named("predefined.recipe.path"));
@@ -199,12 +190,9 @@ public class OnPremisesIdeApiModule extends AbstractModule {
         bind(WorkspaceConfigValidator.class).to(com.codenvy.api.workspace.LimitsCheckingWorkspaceConfigValidator.class);
         bind(WorkspaceManager.class).to(com.codenvy.api.workspace.LimitsCheckingWorkspaceManager.class);
         bind(WorkspaceMessenger.class).asEagerSingleton();
-        /*
-        bind(ResourcesManager.class).to(ResourcesManagerImpl.class);
-        */
+
 
         bind(com.codenvy.service.http.WorkspaceInfoCache.class);
-        bind(com.codenvy.workspace.listener.WsCacheCleanupSubscriber.class);
 
         bind(com.codenvy.service.password.PasswordService.class);
 
@@ -278,17 +266,6 @@ public class OnPremisesIdeApiModule extends AbstractModule {
         bind(com.codenvy.service.http.WorkspaceInfoCache.WorkspaceCacheLoader.class)
                 .to(com.codenvy.service.http.WorkspaceInfoCache.ManagerCacheLoader.class);
 
-        bind(com.codenvy.workspace.activity.websocket.WebsocketListenerInitializer.class);
-        bind(com.codenvy.workspace.activity.RunActivityChecker.class).asEagerSingleton();
-        /*
-        bind(com.codenvy.workspace.activity.WsActivityListener.class).asEagerSingleton(); // temporarrily disabled, needs MemberhsipDao
-        */
-        bind(com.codenvy.workspace.listener.VfsDeleteSubscriber.class).asEagerSingleton();
-        bind(com.codenvy.workspace.listener.VfsCleanupPerformer.class).to(com.codenvy.workspace.IdexVfsHelper.class);
-
-        /*
-        bind(com.codenvy.workspace.listener.FactoryWorkspaceResourceProvider.class).asEagerSingleton();
-        */
         bind(ProfileMigrator.class).asEagerSingleton();
 
         install(new com.codenvy.workspace.interceptor.InterceptorModule());
@@ -296,22 +273,6 @@ public class OnPremisesIdeApiModule extends AbstractModule {
         install(new com.codenvy.auth.sso.server.deploy.SsoServerModule());
 
         install(new InstrumentationModule());
-/*
-        install(new SQLModule());
-
-        install(new MetricModule());
-        bind(ResourcesService.class);
-
-        install(new SubscriptionModule());
-        install(new OnPremisesSubscriptionModule());
-
-        install(new SaasSubscriptionModule());
-        install(new BillingModule());
-
-        install(new SubscriptionModule());
-        install(new AnalyticsModule());
-        install(new ScheduleModule());
-        */
         bind(org.eclipse.che.api.ssh.server.SshService.class);
         bind(org.eclipse.che.api.machine.server.MachineService.class);
         bind(org.eclipse.che.api.machine.server.dao.SnapshotDao.class).to(com.codenvy.api.dao.mongo.SnapshotDaoImpl.class);
@@ -322,13 +283,6 @@ public class OnPremisesIdeApiModule extends AbstractModule {
                                  .toProvider(MachineMongoDatabaseProvider.class);
 
         install(new ScheduleModule());
-        //install(new CreditCardModule());
-        //install(new GithubModule());
-
-        /*
-        install(new AnalyticsModule());
-        */
-
 
         CreateWsRootDirInterceptor createWsRootDirInterceptor = new CreateWsRootDirInterceptor();
         requestInjection(createWsRootDirInterceptor);
